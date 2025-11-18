@@ -14,8 +14,9 @@
     SSH võti loomine
     <pre>
         ssh-keygen -o -t rsa -C "nikitalitvinenko28@gmail.com"
+
+        * id_rsa.pub võti kopeeritatakse githubi nagu deploy key
     </pre>
-    id_rsa.pub võti kopeeritatakse githubi nagu deploy key
 </li>
 <li>
     Jälgimise lisamine ja commit'i tegemine
@@ -31,5 +32,13 @@
         git remote add origin git@github.com:nikita-lit/PHP-Web.git
         git branch -M main
         git push -u origin main
+    </pre>
+</li>
+<li>
+    Projekti kloonimine desktopile
+    <pre>
+        * Kontroll et id_rsa võti on olemas .ssh kaustas
+        * GIT CMD on lahti
+        git clone git@github.com:nikita-lit/PHP-Web.git;
     </pre>
 </li>
