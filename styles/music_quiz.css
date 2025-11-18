@@ -1,0 +1,42 @@
+.viga {
+    color: red;
+    font-size: 0.9em;
+    font-weight: bold;
+    display: none;
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+}
+
+fieldset {
+    border: 2px solid lightgray;
+    border-radius: 2px;
+    margin: 30px;
+    width: 100%;
+}
+
+legend {
+    font-weight: bold;
+    padding: 3px;
+}
+
+table {
+    border: 1pt solid black;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table td {
+    border: 1pt solid black;
+    text-align: left;
+    height: 50px;
+    padding: 10px;
+}
+
+#kokkuvote {
+    flex-direction: column;
+    border: 1pt solid black;
+}

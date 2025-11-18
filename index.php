@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <title>Nikita Litvinenko PHP tööd</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/music_quiz.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+    </script>
+
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+            integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
+            crossorigin="anonymous">
+    </script>
 </head>
 <body>
     <?php
@@ -11,17 +22,27 @@
         include ("header.php");
     ?>
 
-    <?php
-        // navigeermismenüü
-        include ("nav.php");
-    ?>
+    <div class="flex-container">
+        <?php
+            // navigeermismenüü
+            include ("nav.php");
+        ?>
 
-    <div class="container">
-        <main>
-            <section>
-
-            </section>
-        </main>
+        <div>
+            <?php
+                if(isset($_GET["link"]))
+                {
+                    include ("content/".$_GET["link"]);
+                }
+                else
+                {
+                    include ("content/homepage.php");
+                }
+            ?>
+        </div>
+        <div>
+            <img src="images/cat_image.png" alt="Kass">
+        </div>
     </div>
 
     <?php
