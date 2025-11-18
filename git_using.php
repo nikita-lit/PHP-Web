@@ -25,5 +25,11 @@
         git commit -a -m "commiti tekst"
     </pre>
 </li>
-<?php
-    echo "<li> GITHUB projektiga sidumine";
+<li>
+    GITHUB projektiga sidumine
+    <pre>
+        git remote add origin git@github.com:nikita-lit/PHP-Web.git
+        git branch -M main
+        git push -u origin main
+    </pre>
+</li>
