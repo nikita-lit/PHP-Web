@@ -1,0 +1,32 @@
+html, body {
+    margin: 0;
+    font-family: "Comic Sans MS", serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: slategrey;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
