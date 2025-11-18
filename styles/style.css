@@ -26,6 +26,10 @@ footer {
     color: white;
 }
 
+h3, pre {
+    margin: 0;
+}
+
 div.flex-container {
     display: flex;
     flex: 1;

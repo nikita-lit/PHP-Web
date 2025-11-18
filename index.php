@@ -5,6 +5,7 @@
     <title>Nikita Litvinenko PHP tööd</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/music_quiz.css">
+    <link rel="stylesheet" href="styles/time_funcs.css">
 
     <script src="js/date.js"></script>
 

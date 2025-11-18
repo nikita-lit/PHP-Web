@@ -1,0 +1,15 @@
+#time_container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.time-div {
+    display: flex;
+    flex: 1 1 300px;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #04AA6D;
+    padding: 10px;
+}
