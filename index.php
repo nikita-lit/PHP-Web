@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/music_quiz.css">
 
+    <script src="js/date.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous">
@@ -42,6 +44,11 @@
         </div>
         <div>
             <img src="images/cat_image.png" alt="Kass">
+            <div>
+                <input type="button" value="TÄNA ON" onclick="showDate()">
+                <input type="button" value="Minu sünnipäevani" onclick="daysToBirthday()">
+            </div>
+            <div id="result"></div>
         </div>
     </div>
 

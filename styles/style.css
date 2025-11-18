@@ -50,8 +50,8 @@ div.flex-container > div {
 nav {
     margin: 0;
     padding: 0;
-    flex: 0 0 150px;
-    width: 150px;
+    flex: 0 0 180px;
+    width: 180px;
     background-color: #f1f1f1;
     height: 100%;
     overflow: auto;
