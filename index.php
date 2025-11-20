@@ -43,8 +43,8 @@
                 }
             ?>
         </div>
-        <div style="flex: 0 1 450px">
-            <img src="images/cat_image.png" alt="Kass">
+        <div style="flex: 0 1 230px">
+            <img src="images/cat_image.png" alt="Kass" style="width: 200px; height: 200px">
             <div>
                 <input type="button" value="TÄNA ON" onclick="showDate()">
                 <input type="button" value="Minu sünnipäevani" onclick="daysToBirthday()">
