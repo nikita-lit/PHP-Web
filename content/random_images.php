@@ -15,10 +15,10 @@
             <br>
             <select name="valikud" id="valikud" onchange="teeOmaValik()">
                 <option value="">...</option>
-                <option value="images/1.png">Nagu</option>
-                <option value="images/2.png">Auto</option>
-                <option value="images/3.png">Puu</option>
-                <option value="images/4.png">Täht</option>
+                <option value="https://nikitalitvinenko24.thkit.ee/images/1.png">Nagu</option>
+                <option value="https://nikitalitvinenko24.thkit.ee/images/2.png">Auto</option>
+                <option value="https://nikitalitvinenko24.thkit.ee/images/3.png">Puu</option>
+                <option value="https://nikitalitvinenko24.thkit.ee/images/4.png">Täht</option>
             </select>
         </td>
     </tr>
