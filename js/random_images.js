@@ -1,10 +1,10 @@
 function juhuslikPilt()
 {
     const pildid = [
-        '../../images/1.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/1.png
-        '../../images/2.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/2.png
-        '../../images/3.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/3.png
-        '../../images/4.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/4.png
+        'https://nikitalitvinenko24.thkit.ee/images/1.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/1.png
+        'https://nikitalitvinenko24.thkit.ee/images/2.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/2.png
+        'https://nikitalitvinenko24.thkit.ee/images/3.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/3.png
+        'https://nikitalitvinenko24.thkit.ee/images/4.png', // https://nikitalitvinenko24.thkit.ee/wp/wp-content/uploads/2025/10/4.png
     ];
 
     // html failis määratud pilt kus id = pilt

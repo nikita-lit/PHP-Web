@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="styles/music_quiz.css">
     <link rel="stylesheet" href="styles/time_funcs.css">
 
-    <script src="js/date.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous">
@@ -18,6 +16,8 @@
             integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
             crossorigin="anonymous">
     </script>
+
+    <script src="js/date.js"></script>
 </head>
 <body>
     <?php
