@@ -43,7 +43,7 @@
                 }
             ?>
         </div>
-        <div>
+        <div style="flex: 0 1 450px">
             <img src="images/cat_image.png" alt="Kass">
             <div>
                 <input type="button" value="TÄNA ON" onclick="showDate()">

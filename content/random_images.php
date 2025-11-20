@@ -15,10 +15,10 @@
             <br>
             <select name="valikud" id="valikud" onchange="teeOmaValik()">
                 <option value="">...</option>
-                <option value="../../images/1.png">Nagu</option>
-                <option value="../../images/2.png">Auto</option>
-                <option value="../../images/3.png">Puu</option>
-                <option value="../../images/4.png">Täht</option>
+                <option value="/images/1.png">Nagu</option>
+                <option value="/images/2.png">Auto</option>
+                <option value="/images/3.png">Puu</option>
+                <option value="/images/4.png">Täht</option>
             </select>
         </td>
     </tr>
@@ -82,4 +82,4 @@
     </tr>
 </table>
 
-<script src="../js/random_images.js" onload="juhuslikPilt(); onImageChange()"></script>
+<script src="/js/random_images.js" onload="juhuslikPilt(); onImageChange()"></script>
