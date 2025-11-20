@@ -5,6 +5,7 @@
         <li><a href="?link=music_quiz.php">Muusika küsitlus</a></li>
         <li><a href="?link=random_images.php">Juhuslik pilt</a></li>
         <li><a href="?link=time_funcs.php">Ajafunktsioonid</a></li>
+        <li><a href="?link=text_functions.php">Tekstifunktsioonid</a></li>
         <li><a href="https://nikitalitvinenko24.thkit.ee">Vana index</a></li>
     </ul>
 </nav>
