@@ -118,4 +118,4 @@
     </fieldset>
 </div>
 
-<script src="../js/music_quiz.js" onload="onMusicQuizLoad()"></script>
+<script src="js/music_quiz.js" onload="onMusicQuizLoad()"></script>

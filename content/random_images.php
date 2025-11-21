@@ -82,4 +82,4 @@
     </tr>
 </table>
 
-<script src="../js/random_images.js" onload="juhuslikPilt(); onImageChange()"></script>
+<script src="js/random_images.js" onload="juhuslikPilt(); onImageChange()"></script>
