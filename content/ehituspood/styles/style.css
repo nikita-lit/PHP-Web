@@ -1,0 +1,143 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    color: #333;
+    font-family: "Arial", serif;
+    font-size: 20px;
+    height: 100%;
+}
+
+/* Header */
+header {
+    background-color: #ffffff;
+    color: #ffc60b;
+    text-align: left;
+    padding: 20px;
+    font-family: "Verdana", serif;
+    font-weight: bold;
+    letter-spacing: 5px;
+    z-index: 1000;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+/* Nav */
+nav {
+    padding: 0;
+    box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    height: 40px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+    gap: 20px;
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+    margin: 0;
+    padding: 10px 0 10px 20px;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    padding: 10px;
+}
+
+nav ul a:hover {
+    background-color: #ecebeb;
+    border-radius: 5px;
+}
+
+/* Main */
+main {
+    flex: 1 1;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #d8d8d8;
+    padding: 10px;
+    text-align: center;
+    bottom: 0;
+    height: 50px;
+    color: #333;
+    flex: 0;
+}
+
+div.flex-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+}
+
+div.flex-container > div {
+    margin: 5px;
+    padding: 5px;
+    height: 100%;
+}
+
+/* Product */
+.product {
+    background-color: #ecebeb;
+    width: 420px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.product h2 {
+    margin: 0;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Admin */
+#admin_menu {
+    border-right: 1px solid #d8d8d8;
+    width: 250px;
+    padding: 20px;
+    height: 100%;
+}
+
+#admin_menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#admin_menu ul li {
+    margin-top: 10px;
+}
+
+#admin_menu a {
+    text-decoration: none;
+    color: #333333;
+    padding: 5px;
+}
+
+#admin_menu a:hover {
+    background-color: #ffc60b;
+    border-radius: 5px;
+}
