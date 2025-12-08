@@ -1,0 +1,2 @@
+Programmeerija näeb und.
+Unes töötab kõik esimesel käivitusel.

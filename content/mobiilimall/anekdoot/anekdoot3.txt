@@ -1,0 +1,2 @@
+Arendaja palvetab: “Palun, ära jookse kokku…”
+Arvuti: jookseb kokku.
