@@ -7,5 +7,7 @@
         <li><a href="?link=time_funcs.php">Ajafunktsioonid</a></li>
         <li><a href="?link=text_functions.php">Tekstifunktsioonid</a></li>
         <li><a href="https://nikitalitvinenko24.thkit.ee">Vana index</a></li>
+        <li><a href="content/database/news_from_tabel.php">Uudised AB</a></li>
+        <li><a href="content/database2/muutmine.php">Ühe SQL andmetabeliga seotud PHPveebilehestik</a></li>
     </ul>
 </nav>

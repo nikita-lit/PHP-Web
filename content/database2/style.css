@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", serif;
+    font-size: 20px;
+    background: white;
+    color: black;
+}
+
+#menyykiht, #sisukiht {
+    padding: 20px;
+}
+
+#menyykiht {
+    width: 250px;
+    background: lightslategray;
+    min-height: 100vh;
+    position: fixed;
+}
+
+#menyykiht h2 {
+    margin-top: 0;
+}
+
+#menyykiht ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#menyykiht li {
+    margin-bottom: 8px;
+}
+
+#menyykiht a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#menyykiht a:hover {
+    text-decoration: underline;
+}
+
+#sisukiht {
+    margin-left: 300px;
+}
+
+#sisukiht h2 {
+    margin-top: 0;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    width: 450px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background: lightslategray;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: slategrey;
+}
+
+#sisukiht a {
+    color: #0366d6;
+    font-weight: bold;
+}
+
+#sisukiht a:hover {
+    text-decoration: underline;
+}
+
+#jalusekiht {
+    position: fixed;
+    margin-left: 300px;
+    padding: 20px;
+    font-size: 20px;
+    bottom: 0;
+    color: black;
+}
