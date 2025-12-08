@@ -59,4 +59,6 @@ Ma kasutasin HTML, CSS ja PHP: HTML abil määratlesin lehe struktuuri, CSS abil
         <li>Padding ja marginaalid on väiksemad, et kõik elemendid mahuksid ekraanile.</li>
         <li>Anekdoodid kuvatakse loetavalt ühe veeruna.</li>
     </ul>
+
+    <img src="mobiilimall.jpg" alt="Mobiilivaade" style="width: 400px">
 </div>
