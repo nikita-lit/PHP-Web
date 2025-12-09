@@ -1,3 +1,4 @@
+<?php if (isset($_GET["code"])) {die(highlight_file(__FILE__, 1));} ?>
 <h1 style="margin: 20px 0 0 20px">Tere Tulemast!</h1>
 <div style="padding: 20px">
 Me oleme mugav ehituspood kõigile, kes hindavad kvaliteeti ja praktilisust. Meilt leiab remondimaterjale, tööriistu ja

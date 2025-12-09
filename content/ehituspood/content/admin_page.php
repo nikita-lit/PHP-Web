@@ -1,121 +1,145 @@
+<?php if (isset($_GET["code"])) {die(highlight_file(__FILE__, 1));} ?>
 <?php
     require('config.php');
     global $connect;
 
-    if (isset($_REQUEST["uusleht"]))
+    if (!empty($_REQUEST["uusleht"]))
     {
         $kask = $connect->prepare("INSERT INTO products (name, description, price) VALUES (?, ?, ?)");
         $kask->bind_param("ssd", $_REQUEST["name"], $_REQUEST["desc"], $_REQUEST["price"]);
         $kask->execute();
-        header("Location: " . $_SERVER["PHP_SELF"]);
-        $connect->close();
-        exit();
+
+        header("Location: ".$_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"]);
     }
 
-    if (isset($_REQUEST["kustutusid"]))
+    if (!empty($_REQUEST["kustutusid"]))
     {
         $kask = $connect->prepare("DELETE FROM products WHERE id=?");
         $kask->bind_param("i", $_REQUEST["kustutusid"]);
         $kask->execute();
+
+        header("Location: ".$_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"]);
     }
 
-    if (isset($_REQUEST["muutmisid"]))
+    if (!empty($_REQUEST["muutmisid"]))
     {
         $kask = $connect->prepare("UPDATE products SET name=?, description=?, price=? WHERE id=?");
-        $kask->bind_param("ssi",
+        $kask->bind_param("ssdi",
             $_REQUEST["name"],
             $_REQUEST["desc"],
-            $_REQUEST["price"]
+            $_REQUEST["price"],
+            $_REQUEST["id"]
         );
         $kask->execute();
     }
 ?>
 
-<div id="admin_menu">
-    <h2>Tooted</h2>
-    <ul>
+<div class="flex-container" style="flex-direction: row">
+    <div id="admin_menu">
+        <h2>Tooted</h2>
+        <ul>
+            <?php
+            $kask = $connect->prepare("SELECT id, name FROM products");
+            $kask->bind_result($id, $pealkiri);
+            $kask->execute();
+
+            while ($kask->fetch()) {
+                echo "<li><a href='".$_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"]."&id=$id'>"
+                    .htmlspecialchars($pealkiri).
+                    "</a></li>";
+            }
+            ?>
+        </ul>
+
+        <a href="<?= $_SERVER['PHP_SELF']."?link=".$_REQUEST["link"] ?>&lisamine=1">Lisa...</a>
+    </div>
+
+    <div id="sisukiht">
         <?php
-        $kask = $connect->prepare("SELECT id, name FROM products");
-        $kask->bind_result($id, $pealkiri);
-        $kask->execute();
-
-        while ($kask->fetch())
+        if (!empty($_REQUEST["id"]))
         {
-            echo "<li><a href='" . $_SERVER["PHP_SELF"] .
-                "?id=$id'>" . htmlspecialchars($pealkiri) . "</a></li>";
-        }
-        ?>
-    </ul>
+            $kask = $connect->prepare("SELECT id, name, description, price FROM products WHERE id=?");
+            $kask->bind_param("i", $_REQUEST["id"]);
+            $kask->bind_result($id, $name, $desc, $price);
+            $kask->execute();
 
-    <a href="<?= $_SERVER['PHP_SELF'] ?>?lisamine=jah">Lisa...</a>
-</div>
-
-<div id="sisukiht">
-    <?php
-    if (isset($_REQUEST["id"]))
-    {
-        $kask = $connect->prepare("SELECT id, pealkiri, sisu FROM lehed WHERE id=?");
-        $kask->bind_param("i", $_REQUEST["id"]);
-        $kask->bind_result($id, $pealkiri, $sisu);
-        $kask->execute();
-
-        if ($kask->fetch())
-        {
-            if (isset($_REQUEST["muutmine"]))
+            if ($kask->fetch())
             {
-                echo "
-                <form action='".$_SERVER["PHP_SELF"]."'>
-                    <input type='hidden' name='muutmisid' value='$id'/>
-                    <h2>Teate muutmine</h2>
-                    <dl>
-                        <dt>Pealkiri:</dt>
-                        <dd>
-                            <input type='text' name='pealkiri' value='".htmlspecialchars($pealkiri)."'/>
-                        </dd>
-
-                        <dt>Teate sisu:</dt>
-                        <dd>
-                            <textarea rows='20' cols='30' name='sisu'>".htmlspecialchars($sisu)."</textarea>
-                        </dd>
-                    </dl>
-                    <input type='submit' value='Muuda'/>
-                </form>";
+                if (!empty($_REQUEST["muutmine"]))
+                {
+                    $link = $_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"];
+                    echo '<form action="'.$link.'&muutmisid=1" method="post" id="product_form">
+                        <h2>Toote muutmine</h2>
+        
+                        <div style="display: flex; flex-direction: column; gap: 5px">
+                            <label for="name">Nimi:</label>
+                            <input type="text" id="name" name="name" value='.$name.' style="margin-left: 30px">
+                        </div>
+        
+                        <div style="display: flex; flex-direction: column; gap: 5px">
+                            <label for="desc">Kirjandus:</label>
+                            <textarea name="desc" id="desc" style="margin-left: 30px">'.$desc.'</textarea>
+                        </div>
+        
+                        <div style="display: flex; flex-direction: column; gap: 5px">
+                            <label for="price">Hind:</label>
+                            <input type="number" name="price" id="price" value='.$price.' min="0" max="10000" step="any style="margin-left: 30px;">
+                        </div>
+        
+                        <input type="submit" value="Muuda" style="
+                            height: 30px;
+                            width: 80px;
+                            font-size: 15px;">
+                    </form>';
+                }
+                else
+                {
+                    echo "<div class='product'>";
+                    echo "<h2>".htmlspecialchars($name)."</h2>";
+                    echo "<div>".htmlspecialchars($desc)."</div>";
+                    echo "<div>".htmlspecialchars($price)."</div>";
+                    echo "<div style='display: flex; flex-direction: column; gap: 5px; background: white; padding: 10px;'>";
+                        $link = $_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"];
+                        echo "<a href='$link&muutmine=1&id=$id'>Muuda</a>";
+                        echo "<a href='$link&kustutusid=$id'>Kustuta</a>";
+                    echo "</div>";
+                    echo "</div>";
+                }
             }
             else
-            {
-                // Ühe teate kuvamine
-                echo "<h2>" . htmlspecialchars($pealkiri) . "</h2>";
-                echo nl2br(htmlspecialchars($sisu));
-
-                echo "<br /><a href='" . $_SERVER["PHP_SELF"]."?kustutusid=$id'>Kustuta</a> ";
-
-                echo "<a href='".$_SERVER["PHP_SELF"]."?id=$id&amp;muutmine=jah'>Muuda</a>";
-            }
+                echo "Vigased andmed.";
         }
-        else
-            echo "Vigased andmed.";
-    }
 
-    if (isset($_REQUEST["lisamine"]))
-    {
+        if (!empty($_REQUEST["lisamine"]))
+        {
+            $link = $_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"];
+            echo '<form action="'.$link.'&uusleht=1" method="post" id="product_form">
+                <h2>Uue toote lisamine</h2>
+
+                <div style="display: flex; flex-direction: column; gap: 5px">
+                    <label for="name">Nimi:</label>
+                    <input type="text" id="name" name="name" style="margin-left: 30px">
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 5px">
+                    <label for="desc">Kirjandus:</label>
+                    <textarea name="desc" id="desc" style="margin-left: 30px"></textarea>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 5px">
+                    <label for="price">Hind:</label>
+                    <input type="number" name="price" id="price" min="0" max="10000" step="any style="margin-left: 30px;">
+                </div>
+
+                <input type="submit" value="Lisa" style="
+                    height: 30px;
+                    width: 80px;
+                    font-size: 15px;">
+            </form>
+            <?php';
+        }
         ?>
-        <form action="<?= $_SERVER["PHP_SELF"] ?>">
-            <input type="hidden" name="uusleht" value="jah" />
-            <h2>Uue teate lisamine</h2>
-
-            <dl>
-                <dt>Pealkiri:</dt>
-                <dd><input type="text" name="pealkiri"/></dd>
-
-                <dt>Teate sisu:</dt>
-                <dd><textarea rows="20" cols="30" name="sisu"></textarea></dd>
-            </dl>
-
-            <input type="submit" value="Sisesta"/>
-        </form>
-        <?php
-    }
-    ?>
+    </div>
 </div>
 
 <?php

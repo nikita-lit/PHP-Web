@@ -95,6 +95,9 @@ div.flex-container > div {
 
 /* Product */
 .product {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background-color: #ecebeb;
     width: 420px;
     height: 300px;
@@ -140,4 +143,26 @@ div.flex-container > div {
 #admin_menu a:hover {
     background-color: #ffc60b;
     border-radius: 5px;
+}
+
+#product_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 400px;
+    font-size: 20px;
+}
+
+#product_form input, textarea {
+    font-size: 15px;
+    width: 100%;
+    padding-left: 5px;
+}
+
+#product_form input {
+    height: 30px;
+}
+
+#product_form textarea {
+    height: 100px;
 }

@@ -1,3 +1,4 @@
+<?php if (isset($_GET["code"])) {die(highlight_file(__FILE__, 1));} ?>
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -31,16 +32,16 @@
     ?>
 
     <?php
-    // navigeermismenüü
-    include ("nav.php");
+        // navigeermismenüü
+        include ("nav.php");
     ?>
 
     <main>
         <div style="height: 100%">
             <?php
-            if(isset($_GET["link"]))
+            if(isset($_REQUEST["link"]))
             {
-                include ("content/".$_GET["link"]);
+                include ("content/".$_REQUEST["link"]);
             }
             else
             {
@@ -51,8 +52,8 @@
     </main>
 
     <?php
-    // jalus
-    include ("footer.php");
+        // jalus
+        include ("footer.php");
     ?>
 </body>
 </html>
