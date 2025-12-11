@@ -12,25 +12,6 @@
     // päis
     include ("header.php");
 
-    /*
-        CREATE TABLE products (
-            id int AUTO_INCREMENT PRIMARY KEY,
-            name varchar(100) NOT NULL,
-            description text,
-            price decimal(10,2) NOT NULL,
-            image text,
-        );
-
-        INSERT INTO products (name, description, price) VALUES
-            ('Tsement A200', 'Betooni ja müüritööd', 6.5),
-            ('Valge akrüülvärv', 'Sisetöödeks, 3 l ämber', 12.9),
-            ('Akutrell', '900 W, 3 režiimi', 79),
-            ('Kruvid 4x40 mm', 'Pakend 200 tk.', 3.2),
-            ('Montaaživaht standard', '750 ml', 4.8),
-            ('Krohvinuga 150 mm', 'Terasest, kummeeritud käepide', 2.5),
-            ('Laminaat Oak', 'Klass 32, 1 m2', 9.9),
-            ('Maalriteip 30 mm', 'Universaalne', 1.2);
-     */
     ?>
 
     <?php
