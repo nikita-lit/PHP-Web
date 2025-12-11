@@ -8,7 +8,7 @@
         $query = $connect->prepare("UPDATE valimised SET punktid = punktid + 1 WHERE id = ?");
         $query->bind_param("i", $_REQUEST["lisa1punkt"]);
         $query->execute();
-        header("Location: " . $_SERVER["PHP_SELF"]); // aadressi puhastab päring ja jääb faili nimi
+        header("Location: " . $_SERVER["PHP_SELF"].'?id='.$_REQUEST["lisa1punkt"]); // aadressi puhastab päring ja jääb faili nimi
     }
 
     //-1 punkt
@@ -17,7 +17,7 @@
         $query = $connect->prepare("UPDATE valimised SET punktid = punktid - 1 WHERE id = ?");
         $query->bind_param("i", $_REQUEST["lisa-1punkt"]);
         $query->execute();
-        header("Location: " . $_SERVER["PHP_SELF"]);
+        header("Location: " . $_SERVER["PHP_SELF"].'?id='.$_REQUEST["lisa-1punkt"]);
     }
 
     //lisamine admetabelisse
@@ -40,6 +40,6 @@
         $komment2 = $_REQUEST["uus_kommentaar"]."\n";
         $query->bind_param("si", $komment2, $_REQUEST["uue_komment_id"]);
         $query->execute();
-        header("Location: " . $_SERVER["PHP_SELF"]);
+        header("Location: " . $_SERVER["PHP_SELF"].'?id='.$_REQUEST["uue_komment_id"]);
     }
 ?>

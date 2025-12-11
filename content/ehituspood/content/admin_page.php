@@ -5,8 +5,8 @@
 
     if (!empty($_REQUEST["uusleht"]) && !empty($_REQUEST["name"]))
     {
-        $kask = $connect->prepare("INSERT INTO products (name, description, price) VALUES (?, ?, ?)");
-        $kask->bind_param("ssd", $_REQUEST["name"], $_REQUEST["desc"], $_REQUEST["price"]);
+        $kask = $connect->prepare("INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)");
+        $kask->bind_param("ssds", $_REQUEST["name"], $_REQUEST["desc"], $_REQUEST["price"], $_REQUEST["image"]);
         $kask->execute();
 
         header("Location: ".$_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"]);
@@ -23,11 +23,12 @@
 
     if (!empty($_REQUEST["muutmisid"]) && !empty($_REQUEST["name"]))
     {
-        $kask = $connect->prepare("UPDATE products SET name=?, description=?, price=? WHERE id=?");
+        $kask = $connect->prepare("UPDATE products SET name=?, description=?, price=?, image=? WHERE id=?");
         $kask->bind_param("ssdi",
             $_REQUEST["name"],
             $_REQUEST["desc"],
             $_REQUEST["price"],
+            $_REQUEST["image"],
             $_REQUEST["id"]
         );
         $kask->execute();
@@ -57,13 +58,13 @@
         <a href="<?= $_SERVER['PHP_SELF']."?link=".$_REQUEST["link"] ?>&lisamine=1">Lisa...</a>
     </div>
 
-    <div id="sisukiht">
+    <div>
         <?php
         if (!empty($_REQUEST["id"]))
         {
-            $kask = $connect->prepare("SELECT id, name, description, price FROM products WHERE id=?");
+            $kask = $connect->prepare("SELECT id, name, description, price, image FROM products WHERE id=?");
             $kask->bind_param("i", $_REQUEST["id"]);
-            $kask->bind_result($id, $name, $desc, $price);
+            $kask->bind_result($id, $name, $desc, $price, $image);
             $kask->execute();
 
             if ($kask->fetch())
@@ -82,6 +83,11 @@
                         <div style="display: flex; flex-direction: column; gap: 5px">
                             <label for="desc">Kirjandus:</label>
                             <textarea name="desc" id="desc" style="margin-left: 30px">'.$desc.'</textarea>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 5px">
+                            <label for="image">Pilt:</label>
+                            <textarea name="image" id="image" style="margin-left: 30px">'.$image.'</textarea>
                         </div>
         
                         <div style="display: flex; flex-direction: column; gap: 5px">
@@ -132,6 +138,11 @@
                 <div style="display: flex; flex-direction: column; gap: 5px">
                     <label for="desc">Kirjandus:</label>
                     <textarea name="desc" id="desc" style="margin-left: 30px"></textarea>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 5px">
+                    <label for="image">Pilt:</label>
+                    <textarea name="image" id="image" style="margin-left: 30px"></textarea>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 5px">

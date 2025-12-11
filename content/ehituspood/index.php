@@ -1,4 +1,5 @@
 <?php if (isset($_GET["code"])) {die(highlight_file(__FILE__, 1));} ?>
+
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -12,17 +13,18 @@
     include ("header.php");
 
     /*
-        CREATE TABLE Products (
+        CREATE TABLE products (
             id int AUTO_INCREMENT PRIMARY KEY,
             name varchar(100) NOT NULL,
             description text,
-            price decimal(10,2) NOT NULL
+            price decimal(10,2) NOT NULL,
+            image text,
         );
 
-        INSERT INTO Products (name, description, price) VALUES
+        INSERT INTO products (name, description, price) VALUES
             ('Tsement A200', 'Betooni ja müüritööd', 6.5),
             ('Valge akrüülvärv', 'Sisetöödeks, 3 l ämber', 12.9),
-            ('Perforaator Pro', '900 W, 3 režiimi', 79),
+            ('Akutrell', '900 W, 3 režiimi', 79),
             ('Kruvid 4x40 mm', 'Pakend 200 tk.', 3.2),
             ('Montaaživaht standard', '750 ml', 4.8),
             ('Krohvinuga 150 mm', 'Terasest, kummeeritud käepide', 2.5),

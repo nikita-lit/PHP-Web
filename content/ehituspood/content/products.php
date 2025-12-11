@@ -1,4 +1,5 @@
 <?php if (isset($_GET["code"])) {die(highlight_file(__FILE__, 1));} ?>
+
 <?php
     require ('config.php');
     global $connect;
@@ -10,16 +11,24 @@
 
 <h1 style="margin: 20px">Tooted</h1>
 <div class="product-container">
-<?php
-while($query->fetch())
-{
-    echo "<div class='product'>";
-    echo "<h2>".htmlspecialchars($name)."</h2>";
-    echo "<div>".htmlspecialchars($desc)."</div>";
-    echo "<div>".htmlspecialchars($price)." €</div>";
-    echo "</div>";
-}
-?>
+    <?php  
+        echo "<table id='product_table'>";
+            echo "<tr>";
+                echo "<th>Nimi</th>";
+                echo "<th>Kirjandus</th>";
+                echo "<th>Hind</th>";
+            echo "</tr>";
+        
+        while($query->fetch())
+        {
+            echo "<tr>";
+            echo "<td>".htmlspecialchars($name)."</td>";
+            echo "<td>".htmlspecialchars($desc)."</td>";
+            echo "<td>".htmlspecialchars($price)." €</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    ?>
 </div>
 
 <?php
