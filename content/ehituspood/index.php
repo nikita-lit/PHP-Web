@@ -1,5 +1,3 @@
-<?php if (isset($_GET["code"])) {die(highlight_file(__FILE__, 1));} ?>
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
