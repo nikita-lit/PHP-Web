@@ -46,6 +46,14 @@
         3. Ei saa +1/-1 punkt
         4. Admin kohe saab lisada avalikuse staatus
     */
+
+    if (!empty($_REQUEST["kustuta_kommentaarid"]))
+    {
+        $query = $connect->prepare("UPDATE valimised SET kommentaarid = '' WHERE id = ?");
+        $query->bind_param("i", $_REQUEST["kustuta_kommentaarid"]);
+        $query->execute();
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,10 +76,11 @@
             <th>Punktid</th>
             <th>Lisamisaeg</th>
             <th>Haldus</th>
+            <th>Kommentaarid</th>
         </tr>
         <?php
-            $query = $connect->prepare("SELECT id, president, pilt, punktid, lisamisaeg, avalik FROM valimised");
-            $query->bind_result($id, $president, $pilt, $punktid, $lisamisaeg, $avalik);
+            $query = $connect->prepare("SELECT id, president, pilt, punktid, lisamisaeg, avalik, kommentaarid FROM valimised");
+            $query->bind_result($id, $president, $pilt, $punktid, $lisamisaeg, $avalik, $kommentaarid);
             $query->execute();
             while($query->fetch())
             {
@@ -93,6 +102,12 @@
                 }
 
                 echo "<td class='$seisund'>$tekstLehel - <a href='?$seisund=$id'>$tekst</a></td>";
+                echo "<td>
+                        <div style='display: flex; flex-direction: row; gap: 20px: justify-content: center; align-items: center;'>
+                            <div style='flex: 1 1'>".nl2br(htmlspecialchars($kommentaarid))."</div>
+                            <a href='?kustuta_kommentaarid=$id'>Kustuta</a>
+                        </div>
+                    </td>";
                 echo "<td><a href='?kustuta=$id'>Kustuta</a></td>";
                 echo "</tr>";
             }

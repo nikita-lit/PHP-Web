@@ -32,4 +32,14 @@
         $query->execute();
         header("Location: " . $_SERVER["PHP_SELF"]);
     }
+
+    //Kommentaari lisamine
+    if (!empty($_REQUEST["uue_komment_id"]) && !empty($_REQUEST["uus_kommentaar"]))
+    {
+        $query = $connect->prepare("UPDATE valimised SET kommentaarid = CONCAT(kommentaarid, ?) WHERE id = ?");
+        $komment2 = $_REQUEST["uus_kommentaar"]."\n";
+        $query->bind_param("si", $komment2, $_REQUEST["uue_komment_id"]);
+        $query->execute();
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
 ?>

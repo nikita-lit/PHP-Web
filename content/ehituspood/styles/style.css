@@ -84,6 +84,8 @@ main {
     margin: 20px;
     box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
     line-height: 1.5;
+    border-bottom: 3px solid #d8d8d8;
+    border-top: 3px solid #d8d8d8;
 }
 
 #homepage_nav {
@@ -103,6 +105,8 @@ main {
 
 #homepage_nav_products .product {
     height: 200px;
+    background-color: white;
+    box-shadow: none;
 }
 
 #homepage_nav a {
@@ -162,6 +166,8 @@ div.flex-container > div {
     padding: 20px;
     border-radius: 5px;
     box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
+    border-bottom: 3px solid #d8d8d8;
+    border-top: 3px solid #d8d8d8;
 }
 
 .product h2 {
@@ -207,14 +213,17 @@ div.flex-container > div {
 #product_form {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 10px;
-    height: 400px;
+    height: 100%;
     width: 350px;
-    padding: 10px 20px 0 20px;
+    padding: 5px 20px 0 20px;
     font-size: 20px;
     background-color: #fdfcf8;
     box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
     border-radius: 5px;
+    border-bottom: 3px solid #d8d8d8;
+    border-top: 3px solid #d8d8d8;
 }
 
 #product_form input, textarea {

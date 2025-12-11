@@ -3,7 +3,7 @@
     require('config.php');
     global $connect;
 
-    if (!empty($_REQUEST["uusleht"]))
+    if (!empty($_REQUEST["uusleht"]) && !empty($_REQUEST["name"]))
     {
         $kask = $connect->prepare("INSERT INTO products (name, description, price) VALUES (?, ?, ?)");
         $kask->bind_param("ssd", $_REQUEST["name"], $_REQUEST["desc"], $_REQUEST["price"]);
@@ -21,7 +21,7 @@
         header("Location: ".$_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"]);
     }
 
-    if (!empty($_REQUEST["muutmisid"]))
+    if (!empty($_REQUEST["muutmisid"]) && !empty($_REQUEST["name"]))
     {
         $kask = $connect->prepare("UPDATE products SET name=?, description=?, price=? WHERE id=?");
         $kask->bind_param("ssdi",

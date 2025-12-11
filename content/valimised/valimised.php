@@ -38,10 +38,11 @@
             <th>Lisamisaeg</th>
             <th>+1 punkt</th>
             <th>-1 punkt</th>
+            <th>Kommentaarid</th>
         </tr>
         <?php
-            $query = $connect->prepare("SELECT id, president, pilt, punktid, lisamisaeg FROM valimised WHERE avalik=1");
-            $query->bind_result($id, $president, $pilt, $punktid, $lisamisaeg);
+            $query = $connect->prepare("SELECT id, president, pilt, punktid, lisamisaeg, kommentaarid FROM valimised WHERE avalik=1");
+            $query->bind_result($id, $president, $pilt, $punktid, $lisamisaeg, $kommentaarid);
             $query->execute();
             while($query->fetch())
             {
@@ -53,6 +54,18 @@
                 echo "<td>$lisamisaeg</td>";
                 echo "<td><a href='?lisa1punkt=$id'>+1 punkt</a></td>";
                 echo "<td><a href='?lisa-1punkt=$id'>-1 punkt</a></td>";
+                echo "<td>".nl2br(htmlspecialchars($kommentaarid))."</td>";
+                echo '<td>
+                    <form action="?" method="post">
+                        <input type="hidden" name="uue_komment_id" value="'.$id.'">
+
+                        <label>
+                            <input type="text" name="uus_kommentaar" id="uus_kommentaar">
+                        </label>
+
+                        <input type="submit" value="ok">
+                    </form>
+                </td>';
                 echo "</tr>";
             }
         ?>

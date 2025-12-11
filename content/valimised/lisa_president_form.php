@@ -1,5 +1,5 @@
 <h2>Lisa oma presidendi</h2>
-<form action="?" method="post">
+<form action="?" method="post" id="add_form">
     <label>
         Presidendi Nimi:
         <input type="text" name="president">

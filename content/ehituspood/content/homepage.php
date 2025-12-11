@@ -6,7 +6,7 @@
 ?>
 
 <div id="homepage_welcome">
-    <h1 style="text-align: center;">Tere Tulemast!</h1>
+    <h1 style="text-align: center;">Tere tulemast!</h1>
     <div style="padding: 20px">
     Me oleme mugav ehituspood kõigile, kes hindavad kvaliteeti ja praktilisust.
     <br>Meilt leiab remondimaterjale, tööriistu ja kõik vajalikud tarvikud. 

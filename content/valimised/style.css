@@ -5,7 +5,7 @@ img {
 
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 90%;
 }
 
 table th {
@@ -18,7 +18,7 @@ table td, th {
     padding: 5px;
 }
 
-form {
+#add_form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
