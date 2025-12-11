@@ -26,6 +26,12 @@ header {
     z-index: 1000;
 }
 
+header h1 {
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 h1, h2 {
     margin: 0;
 }
@@ -58,7 +64,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-    background-color: #ecebeb;
+    background-color: #ffc60b;
     border-radius: 5px;
 }
 
@@ -66,6 +72,58 @@ nav ul a:hover {
 main {
     flex: 1 1;
     margin-bottom: 40px;
+}
+
+#homepage_welcome, #homepage_nav, #homepage_workers {
+    width: 50%;
+    height: 300px;
+    justify-self: center;
+    background-color: #fdfcf8;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
+    line-height: 1.5;
+}
+
+#homepage_nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#homepage_nav_products {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+#homepage_nav_products .product {
+    height: 200px;
+}
+
+#homepage_nav a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#homepage_nav a:hover {
+    background-color: #ffc60b;
+    border-radius: 5px;
+}
+
+#homepage_workers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
 }
 
 /* Footer */
@@ -98,11 +156,12 @@ div.flex-container > div {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: #ecebeb;
+    background-color: #fdfcf8;
     width: 420px;
     height: 300px;
     padding: 20px;
     border-radius: 5px;
+    box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
 }
 
 .product h2 {
@@ -150,13 +209,19 @@ div.flex-container > div {
     flex-direction: column;
     gap: 10px;
     height: 400px;
+    width: 350px;
+    padding: 10px 20px 0 20px;
     font-size: 20px;
+    background-color: #fdfcf8;
+    box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
+    border-radius: 5px;
 }
 
 #product_form input, textarea {
+    font-family: "Arial", serif;
     font-size: 15px;
-    width: 100%;
     padding-left: 5px;
+    resize: none;
 }
 
 #product_form input {

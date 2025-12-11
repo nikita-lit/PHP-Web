@@ -16,7 +16,7 @@ while($query->fetch())
     echo "<div class='product'>";
     echo "<h2>".htmlspecialchars($name)."</h2>";
     echo "<div>".htmlspecialchars($desc)."</div>";
-    echo "<div>".htmlspecialchars($price)."</div>";
+    echo "<div>".htmlspecialchars($price)." €</div>";
     echo "</div>";
 }
 ?>

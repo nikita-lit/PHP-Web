@@ -31,6 +31,8 @@
             $_REQUEST["id"]
         );
         $kask->execute();
+
+        header("Location: ".$_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"]."&id=".$_REQUEST["id"]);
     }
 ?>
 
@@ -43,7 +45,8 @@
             $kask->bind_result($id, $pealkiri);
             $kask->execute();
 
-            while ($kask->fetch()) {
+            while ($kask->fetch()) 
+            {
                 echo "<li><a href='".$_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"]."&id=$id'>"
                     .htmlspecialchars($pealkiri).
                     "</a></li>";
@@ -68,7 +71,7 @@
                 if (!empty($_REQUEST["muutmine"]))
                 {
                     $link = $_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"];
-                    echo '<form action="'.$link.'&muutmisid=1" method="post" id="product_form">
+                    echo '<form action="'.$link.'&muutmisid=1&id='.$id.'" method="post" id="product_form">
                         <h2>Toote muutmine</h2>
         
                         <div style="display: flex; flex-direction: column; gap: 5px">
@@ -83,7 +86,7 @@
         
                         <div style="display: flex; flex-direction: column; gap: 5px">
                             <label for="price">Hind:</label>
-                            <input type="number" name="price" id="price" value='.$price.' min="0" max="10000" step="any style="margin-left: 30px;">
+                            <input type="number" name="price" id="price" value='.$price.' min="0" max="10000" step="any" style="margin-left: 30px;">
                         </div>
         
                         <input type="submit" value="Muuda" style="
@@ -97,8 +100,14 @@
                     echo "<div class='product'>";
                     echo "<h2>".htmlspecialchars($name)."</h2>";
                     echo "<div>".htmlspecialchars($desc)."</div>";
-                    echo "<div>".htmlspecialchars($price)."</div>";
-                    echo "<div style='display: flex; flex-direction: column; gap: 5px; background: white; padding: 10px;'>";
+                    echo "<div>".htmlspecialchars($price)." €</div>";
+                    echo "<div style='
+                        display: flex; 
+                        flex-direction: 
+                        column; gap: 5px; 
+                        background: #ecebeb; 
+                        padding: 10px; 
+                        border-radius: 5px;'>";
                         $link = $_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"];
                         echo "<a href='$link&muutmine=1&id=$id'>Muuda</a>";
                         echo "<a href='$link&kustutusid=$id'>Kustuta</a>";
@@ -109,8 +118,7 @@
             else
                 echo "Vigased andmed.";
         }
-
-        if (!empty($_REQUEST["lisamine"]))
+        else if (!empty($_REQUEST["lisamine"]))
         {
             $link = $_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"];
             echo '<form action="'.$link.'&uusleht=1" method="post" id="product_form">
@@ -128,7 +136,7 @@
 
                 <div style="display: flex; flex-direction: column; gap: 5px">
                     <label for="price">Hind:</label>
-                    <input type="number" name="price" id="price" min="0" max="10000" step="any style="margin-left: 30px;">
+                    <input type="number" name="price" id="price" min="0" max="10000" step="any" style="margin-left: 30px;">
                 </div>
 
                 <input type="submit" value="Lisa" style="
@@ -138,6 +146,8 @@
             </form>
             <?php';
         }
+        else
+            echo "<h1>Admin haldusleht</h1>"
         ?>
     </div>
 </div>
