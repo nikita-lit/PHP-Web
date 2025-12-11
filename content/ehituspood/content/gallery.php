@@ -22,7 +22,7 @@
                     align-items: center;
                     justify-content: center;'>";
                 $link = $_SERVER["PHP_SELF"]."?link=".$_REQUEST["link"].'&id='.$id;
-                echo "<a href='".$link."'><img src='$image' alt='pilt' style='width: 250px; height: 250px'></a>";
+                echo "<a href='".$link."'><img src='$image' alt='pilt' style='width: 250px; height: 250px; border-radius: 100px;'></a>";
                 echo "</div>";
             }
         ?>
@@ -45,7 +45,7 @@
                         align-items: center; 
                         justify-content: center;
                     '>";
-                    echo "<img src='$image' alt='pilt' style='width: 250px; height: 250px'>";
+                    echo "<img src='$image' alt='pilt' style='width: 250px; height: 250px; border-radius: 100px;'>";
                     echo "<h2>".htmlspecialchars($name)."</h2>";
                     echo "<div>".htmlspecialchars($desc)."</div>";
                     echo "<div>".htmlspecialchars($price)." €</div>";

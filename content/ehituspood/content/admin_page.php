@@ -24,7 +24,7 @@
     if (!empty($_REQUEST["muutmisid"]) && !empty($_REQUEST["name"]))
     {
         $kask = $connect->prepare("UPDATE products SET name=?, description=?, price=?, image=? WHERE id=?");
-        $kask->bind_param("ssdi",
+        $kask->bind_param("ssdsi",
             $_REQUEST["name"],
             $_REQUEST["desc"],
             $_REQUEST["price"],
@@ -92,7 +92,7 @@
         
                         <div style="display: flex; flex-direction: column; gap: 5px">
                             <label for="price">Hind:</label>
-                            <input type="number" name="price" id="price" value='.$price.' min="0" max="10000" step="any" style="margin-left: 30px;">
+                            <input type="number" name="price" id="price" value='.$price.' min="0" max="10000" step="0.01" style="margin-left: 30px;">
                         </div>
         
                         <input type="submit" value="Muuda" style="
@@ -104,6 +104,7 @@
                 else
                 {
                     echo "<div class='product'>";
+                    echo "<img src='$image' alt='pilt' style='width: 100px; height: 100px'>";
                     echo "<h2>".htmlspecialchars($name)."</h2>";
                     echo "<div>".htmlspecialchars($desc)."</div>";
                     echo "<div>".htmlspecialchars($price)." €</div>";
@@ -147,7 +148,7 @@
 
                 <div style="display: flex; flex-direction: column; gap: 5px">
                     <label for="price">Hind:</label>
-                    <input type="number" name="price" id="price" min="0" max="10000" step="any" style="margin-left: 30px;">
+                    <input type="number" name="price" id="price" min="0" max="10000" step="0.01" style="margin-left: 30px;">
                 </div>
 
                 <input type="submit" value="Lisa" style="
