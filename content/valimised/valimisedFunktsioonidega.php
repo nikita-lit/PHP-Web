@@ -1,16 +1,22 @@
 <?php
     require ("functions.php");
 
-    if (isset($_REQUEST["lisa1punkt"]))
+    if (!empty($_REQUEST["lisa1punkt"]))
     {
         LisaPunkt($_REQUEST["lisa1punkt"]);
         header("Location: " . $_SERVER["PHP_SELF"].'?id='.$_REQUEST["lisa1punkt"]); // aadressi puhastab päring ja jääb faili nimi
     }
 
+    if (!empty($_REQUEST["lisa-1punkt"]))
+    {
+        KustutaPunkt($_REQUEST["lisa-1punkt"]);
+        header("Location: " . $_SERVER["PHP_SELF"].'?id='.$_REQUEST["lisa-1punkt"]);
+    }
+
     // päring lisaPresident funktsooni otsimiseks
     if (!empty($_REQUEST["president"]))
     {
-        LisaPresident($_REQUEST["president"], $_REQUEST["pilt"], 1);
+        LisaPresident($_REQUEST["president"], $_REQUEST["pilt"], $_REQUEST["punktid"], 1);
         header("Location: " . $_SERVER["PHP_SELF"]);
     }
 ?>
@@ -49,6 +55,11 @@
         <label>
             Presidendi Pilt:
             <textarea name="pilt"></textarea>
+        </label>
+
+        <label>
+            Presidendi Punktid:
+            <input type="number" name="punktid">
         </label>
 
         <input type="submit" value="Lisa">

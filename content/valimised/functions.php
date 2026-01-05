@@ -11,6 +11,16 @@
         $connect->close();
     }
 
+    // -1 punkt
+    function KustutaPunkt($id)
+    {
+        global $connect;
+        $query = $connect->prepare("UPDATE valimised SET punktid = punktid - 1 WHERE id = ?");
+        $query->bind_param("i", $id);
+        $query->execute();
+        $connect->close();
+    }
+
     function NaitaTabel()
     {
         global $connect;
@@ -35,11 +45,11 @@
         $connect->close();
     }
 
-    function LisaPresident($president, $pilt, $avalik)
+    function LisaPresident($president, $pilt, $punktid, $avalik)
     {
         global $connect;
-        $query = $connect->prepare("INSERT INTO valimised (president, pilt, avalik, lisamisaeg) VALUES (?, ?, ?, NOW())");
-        $query->bind_param("ssi", $president, $pilt, $avalik);
+        $query = $connect->prepare("INSERT INTO valimised (president, pilt, punktid, avalik, lisamisaeg) VALUES (?, ?, ?, ?, NOW())");
+        $query->bind_param("ssii", $president, $pilt, $punktid, $avalik);
         $query->execute();
         $connect->close();
     }
