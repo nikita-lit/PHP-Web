@@ -38,6 +38,7 @@
             echo "<td>{$lisamisaeg}</td>";
             echo "<td><a href='?lisa1punkt={$id}'>+1 punkt</a></td>";
             echo "<td><a href='?lisa-1punkt={$id}'>-1 punkt</a></td>";
+            echo "<td><a href='?kustuta={$id}'>Kustuta</a></td>";
             echo "<td>".nl2br(htmlspecialchars($kommentaarid))."</td>";
             echo '</tr>';
         }
@@ -50,6 +51,15 @@
         global $connect;
         $query = $connect->prepare("INSERT INTO valimised (president, pilt, punktid, avalik, lisamisaeg) VALUES (?, ?, ?, ?, NOW())");
         $query->bind_param("ssii", $president, $pilt, $punktid, $avalik);
+        $query->execute();
+        $connect->close();
+    }
+
+    function KustutaPresident($id)
+    {
+        global $connect;
+        $query = $connect->prepare("DELETE FROM valimised WHERE id = ?");
+        $query->bind_param("i", $id);
         $query->execute();
         $connect->close();
     }

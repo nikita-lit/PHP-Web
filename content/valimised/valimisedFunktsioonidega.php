@@ -19,6 +19,12 @@
         LisaPresident($_REQUEST["president"], $_REQUEST["pilt"], $_REQUEST["punktid"], 1);
         header("Location: " . $_SERVER["PHP_SELF"]);
     }
+
+    if (!empty($_REQUEST["kustuta"]))
+    {
+        KustutaPresident($_REQUEST["kustuta"]);
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,6 +43,7 @@
             <th>Lisamisaeg</th>
             <th>+1 punkt</th>
             <th>-1 punkt</th>
+            <th>Kustuta</th>
             <th>Kommentaarid</th>
         </tr>
         <?php
