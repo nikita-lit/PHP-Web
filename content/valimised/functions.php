@@ -8,7 +8,6 @@
         $query = $connect->prepare("UPDATE valimised SET punktid = punktid + 1 WHERE id = ?");
         $query->bind_param("i", $id);
         $query->execute();
-        header("Location: " . $_SERVER["PHP_SELF"].'?id='.$id); // aadressi puhastab päring ja jääb faili nimi
         $connect->close();
     }
 
@@ -18,6 +17,7 @@
         $query = $connect->prepare("SELECT id, president, pilt, punktid, lisamisaeg, kommentaarid FROM valimised WHERE avalik=1");
         $query->bind_result($id, $president, $pilt, $punktid, $lisamisaeg, $kommentaarid);
         $query->execute();
+
         while($query->fetch())
         {
             echo "<tr>";
@@ -31,4 +31,15 @@
             echo "<td>".nl2br(htmlspecialchars($kommentaarid))."</td>";
             echo '</tr>';
         }
+
+        $connect->close();
+    }
+
+    function LisaPresident($president, $pilt, $avalik)
+    {
+        global $connect;
+        $query = $connect->prepare("INSERT INTO valimised (president, pilt, avalik, lisamisaeg) VALUES (?, ?, ?, NOW())");
+        $query->bind_param("ssi", $president, $pilt, $avalik);
+        $query->execute();
+        $connect->close();
     }

@@ -2,7 +2,17 @@
     require ("functions.php");
 
     if (isset($_REQUEST["lisa1punkt"]))
+    {
         LisaPunkt($_REQUEST["lisa1punkt"]);
+        header("Location: " . $_SERVER["PHP_SELF"].'?id='.$_REQUEST["lisa1punkt"]); // aadressi puhastab päring ja jääb faili nimi
+    }
+
+    // päring lisaPresident funktsooni otsimiseks
+    if (!empty($_REQUEST["president"]))
+    {
+        LisaPresident($_REQUEST["president"], $_REQUEST["pilt"], 1);
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,5 +38,20 @@
             NaitaTabel();
         ?>
     </table>
+
+    <h2>Lisa oma presidendi</h2>
+    <form action="?" method="post" id="add_form">
+        <label>
+            Presidendi Nimi:
+            <input type="text" name="president">
+        </label>
+
+        <label>
+            Presidendi Pilt:
+            <textarea name="pilt"></textarea>
+        </label>
+
+        <input type="submit" value="Lisa">
+    </form>
 </body>
 </html>
