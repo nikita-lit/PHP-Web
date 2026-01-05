@@ -25,6 +25,33 @@
         KustutaPresident($_REQUEST["kustuta"]);
         header("Location: " . $_SERVER["PHP_SELF"]);
     }
+
+    //Kommentaari lisamine
+    if (!empty($_REQUEST["uue_komment_id"]) && !empty($_REQUEST["uus_kommentaar"]))
+    {
+        LisaKommentaar($_REQUEST["uue_komment_id"], $_REQUEST["uus_kommentaar"]);
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
+
+    if (!empty($_REQUEST["punktid_nulliks"]))
+    {
+        PunktidNulliks($_REQUEST["punktid_nulliks"]);
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
+
+    //Näitamine
+    if (!empty($_REQUEST["naita"]))
+    {
+        NaitaPresident($_REQUEST["naita"]);
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
+
+    //Peida
+    if (!empty($_REQUEST["peida"]))
+    {
+        PeidaPresident($_REQUEST["peida"]);
+        header("Location: " . $_SERVER["PHP_SELF"]);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,6 +72,8 @@
             <th>-1 punkt</th>
             <th>Kustuta</th>
             <th>Kommentaarid</th>
+            <th>Lisa kommentaar</th>
+            <th>Haldus</th>
         </tr>
         <?php
             // funktsioon mis näitab tabeli asub functions.php failis
