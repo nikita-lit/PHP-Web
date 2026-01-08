@@ -30,15 +30,29 @@
 
         $xmlRoot = $xmlDoc->documentElement;
         $xmlRoot->appendChild($xmlAuto);
+
+        $omanik = $xmlDoc->createElement("omanik");
+        $xmlAuto->appendChild($omanik);
         
-        unset($_POST['submit']);
-        foreach($_POST as $voti=>$vaartus)
+        foreach($_POST as $voti => $vaartus)
         {
-            $kirje = $xmlDoc->createElement($voti,$vaartus);
-            $xmlAuto->appendChild($kirje);
+            $kirje = $xmlDoc->createElement($voti, $vaartus);
+
+            if ($voti == "eesnimi" || $voti == "perenimi" || $voti == "isikukood")
+                $omanik->appendChild($kirje);
+            else
+                $xmlAuto->appendChild($kirje);
         }
 
-        $xmlDoc->save('autod.xml');
+        $xmlDoc->save("autod.xml");
+
+        unset($_POST["submit"]);
+    }
+
+    if(isset($_POST["submit"]))
+    {
+        LisaAuto();
+        header("Location: " . $_SERVER["PHP_SELF"]);
     }
 ?>
 
@@ -95,7 +109,7 @@
     
     <br><br>
 
-    <form action="?" method="request" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
+    <form action="" method="post" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
         <div>
             <label>
                 Autonumber:
@@ -136,7 +150,7 @@
             </label>
         </div>
 
-        <input type="submit" value="OK">
+        <input type="submit" name="submit" id="submit" value="OK">
     </form>
 </body>
 </html>
