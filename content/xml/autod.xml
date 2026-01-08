@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autod>
+    <auto>
+        <regnumber>123ABC</regnumber>
+        <aasta>2025</aasta>
+        <mark>Volvo</mark>
+        <omanik>Jürgen</omanik>
+    </auto>    
+    <auto>
+        <regnumber>256ABC</regnumber>
+        <aasta>2022</aasta>
+        <mark>Mazda</mark>
+        <omanik>Jürgen</omanik>
+    </auto>
+</autod>
