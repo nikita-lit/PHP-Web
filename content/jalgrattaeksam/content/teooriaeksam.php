@@ -14,6 +14,8 @@
     }
 ?> 
 <div class="flex-container"> 
+    <h1>Teooriaeksam</h1>
+
     <?php
         $display = "none";
         if (!empty($message))
