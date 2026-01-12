@@ -3,12 +3,15 @@
 
     if(!empty($_REQUEST["vormistamine_id"]))
     { 
-        $kask=$yhendus->prepare("UPDATE jalgrattaeksam SET luba=1 WHERE id=?"); 
+        $kask = $yhendus->prepare("UPDATE jalgrattaeksam SET luba=1 WHERE id=?"); 
         $kask->bind_param("i", $_REQUEST["vormistamine_id"]); 
         $kask->execute(); 
+
+        $link = $_REQUEST["link"];
+        header("Location: $_SERVER[PHP_SELF]?link=$link"); 
     } 
 
-    $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi, teooriatulemus, slaalom, ringtee, t2nav, luba FROM jalgrattaeksam;"); 
+    $kask = $yhendus->prepare("SELECT id, eesnimi, perekonnanimi, teooriatulemus, slaalom, ringtee, t2nav, luba FROM jalgrattaeksam;"); 
     $kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus, $slaalom, $ringtee, $t2nav, $luba); 
     $kask->execute(); 
 
@@ -26,7 +29,7 @@
 ?> 
 <div> 
     <h1>Lõpetamine</h1> 
-    <table> 
+    <table id="lõpetamine_table"> 
         <tr> 
             <th>Eesnimi</th> 
             <th>Perekonnanimi</th> 
@@ -45,12 +48,13 @@
             $asendatud_t2nav = asenda($t2nav); 
 
             $loalahter = ".";
+            $link = $_REQUEST["link"];
 
             if($luba == 1)
                 $loalahter = "Väljastatud";
 
             if($luba == -1 && $t2nav == 1) 
-                $loalahter = "<a href='?vormistamine_id=$id'>Vormista load</a>";
+                $loalahter = "<a href='?link=$link&vormistamine_id=$id'>Vormista load</a>";
 
             echo " 
             <tr> 

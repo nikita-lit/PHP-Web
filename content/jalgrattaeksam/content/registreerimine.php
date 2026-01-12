@@ -1,33 +1,32 @@
 <?php  
     require_once("konf.php");
 
-    if(isSet($_REQUEST["sisestusnupp"]))
+    if(isset($_REQUEST["sisestusnupp"]))
     { 
         $kask=$yhendus->prepare("INSERT INTO jalgrattaeksam(eesnimi, perekonnanimi) VALUES (?, ?)"); 
         $kask->bind_param("ss", $_REQUEST["eesnimi"], $_REQUEST["perekonnanimi"]); 
         $kask->execute();
 
         $yhendus->close();
-        header("Location: $_SERVER[PHP_SELF]?lisatudeesnimi=$_REQUEST[eesnimi]"); 
-        exit(); 
+        $lisatud = $_REQUEST['eesnimi'].' '.$_REQUEST['perekonnanimi'];
+        header("Location: $_SERVER[PHP_SELF]?link=teooriaeksam.php&lisatudeesnimi=$lisatud");
+        exit();
     }
 ?>
-<div> 
-    <h1>Registreerimine</h1> 
-    <?php 
-        if(isSet($_REQUEST["lisatudeesnimi"]))
-        { 
-            echo "Lisati $_REQUEST[lisatudeesnimi]"; 
-        }
-    ?>
+<div class="flex-container"> 
+    <h1>Registreerimine</h1>
     
-    <form action="?"> 
-        <dl>
-            <dt>Eesnimi:</dt>
-            <dd><input type="text" name="eesnimi"/></dd>
-            <dt>Perekonnanimi:</dt>
-            <dd><input type="text" name="perekonnanimi"/></dd>
-            <dt><input type="submit" name="sisestusnupp" value="sisesta"/></dt>
-        </dl>
+    <form action="?" id="registreerimine_form"> 
+        <label>
+            Eesnimi:
+            <input type="text" name="eesnimi"/>
+        </label>
+
+        <label>
+            Perekonnanimi:
+            <input type="text" name="perekonnanimi"/>
+        </label>
+
+        <input type="submit" name="sisestusnupp" value="Sisesta"/>
     </form>
 </div> 
