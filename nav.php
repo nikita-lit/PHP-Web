@@ -14,5 +14,7 @@
         <li><a target="_blank" href="content/database2/muutmine.php">Ühe SQL andmetabeliga seotud PHPveebilehestik</a></li>
         <li><a target="_blank" href="content/ehituspood/index.php">Väikefirma - Ehituspood</a></li>
         <li><a target="_blank" href="content/valimised/valimised.php">Valimised</a></li>
+        <li><a target="_blank" href="content/valimised/valimisedFunktsioonidega.php">Valimised Funktsioonidega</a></li>
+        <li><a target="_blank" href="content/jalgrattaeksam/index.php">Jalgrattaeksam</a></li>
     </ul>
 </nav>
