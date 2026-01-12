@@ -12,12 +12,7 @@
     $kask->bind_result($id, $eesnimi, $perekonnanimi); 
     $kask->execute(); 
 ?> 
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>Teooriaeksam</title> 
-</head> 
-<body> 
+<div> 
     <table> 
         <?php 
             while($kask->fetch())
@@ -38,5 +33,4 @@
             } 
         ?> 
     </table> 
-</body> 
-</html>
+</div> 

@@ -18,13 +18,8 @@
     $kask=$yhendus->prepare("SELECT id, eesnimi, perekonnanimi FROM jalgrattaeksam WHERE teooriatulemus>=9 AND slaalom=-1");  
     $kask->bind_result($id, $eesnimi, $perekonnanimi); 
     $kask->execute(); 
-?> 
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>Slaalom</title> 
-</head> 
-<body> 
+?>  
+<div> 
     <h1>Slaalom</h1> 
     <table> 
         <?php 
@@ -43,5 +38,4 @@
             } 
         ?> 
     </table> 
-</body> 
-</html> 
+</div> 

@@ -12,12 +12,7 @@
         exit(); 
     }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Kasutaja registreerimine</title> 
-</head> 
-<body> 
+<div> 
     <h1>Registreerimine</h1> 
     <?php 
         if(isSet($_REQUEST["lisatudeesnimi"]))
@@ -35,5 +30,4 @@
             <dt><input type="submit" name="sisestusnupp" value="sisesta"/></dt>
         </dl>
     </form>
-</body> 
-</html> 
+</div> 

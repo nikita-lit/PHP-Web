@@ -24,12 +24,7 @@
         return "Tundmatu number"; 
     } 
 ?> 
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>Lõpetamine</title> 
-</head> 
-<body> 
+<div> 
     <h1>Lõpetamine</h1> 
     <table> 
         <tr> 
@@ -71,5 +66,4 @@
         } 
         ?> 
     </table> 
-</body> 
-</html>
+</div> 

@@ -19,12 +19,7 @@
     $kask->bind_result($id, $eesnimi, $perekonnanimi); 
     $kask->execute(); 
 ?> 
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>Tänavasõit</title> 
-</head> 
-<body> 
+<div> 
     <h1>Tänavasõit</h1> 
     <table> 
         <?php 
@@ -43,5 +38,4 @@
         } 
         ?> 
     </table> 
-</body> 
-</html> 
+</div> 
