@@ -27,3 +27,6 @@
         <input type="submit" name="submit" value="Sisesta"/>
     </form>
 </div> 
+<?php
+    SulgeYhendus();
+?>
