@@ -1,73 +1,34 @@
-<?php  
-    require_once("konf.php");
+<?php
+    require_once("funktsioonid.php");
 
-    if(!empty($_REQUEST["vormistamine_id"]))
-    { 
-        $kask = $yhendus->prepare("UPDATE jalgrattaeksam SET luba=1 WHERE id=?"); 
-        $kask->bind_param("i", $_REQUEST["vormistamine_id"]); 
-        $kask->execute(); 
+    if(!empty($_REQUEST["id"]))
+    {
+        Luba($_REQUEST["id"]);
+
+        if (isset($_REQUEST["kustuta"]))
+            Kustuta($_REQUEST["id"]);
 
         $link = $_REQUEST["link"];
-        header("Location: $_SERVER[PHP_SELF]?link=$link"); 
-    } 
+        header("Location: $_SERVER[PHP_SELF]?link=$link");
+        exit();
+    }
+?>
+<div>
+    <h1>Lõpetamine</h1>
+    <table id="lõpetamine_table">
+        <tr>
+            <th>Eesnimi</th>
+            <th>Perekonnanimi</th>
+            <th>Teooriaeksam</th>
+            <th>Slaalom</th>
+            <th>Ringtee</th>
+            <th>Tänavasõit</th>
+            <th>Lubade väljastus</th>
+            <th></th>
+        </tr>
 
-    $kask = $yhendus->prepare("SELECT id, eesnimi, perekonnanimi, teooriatulemus, slaalom, ringtee, t2nav, luba FROM jalgrattaeksam;"); 
-    $kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus, $slaalom, $ringtee, $t2nav, $luba); 
-    $kask->execute(); 
-
-    function asenda($nr)
-    { 
-        if($nr == -1)
-            return "."; //tegemata 
-        else if($nr == 1)
-            return "korras";
-        else if($nr == 2)
-            return "ebaõnnestunud";
-
-        return "Tundmatu number"; 
-    } 
-?> 
-<div> 
-    <h1>Lõpetamine</h1> 
-    <table id="lõpetamine_table"> 
-        <tr> 
-            <th>Eesnimi</th> 
-            <th>Perekonnanimi</th> 
-            <th>Teooriaeksam</th> 
-            <th>Slaalom</th> 
-            <th>Ringtee</th> 
-            <th>Tänavasõit</th> 
-            <th>Lubade väljastus</th> 
-        </tr> 
-
-        <?php 
-        while($kask->fetch())
-        { 
-            $asendatud_slaalom = asenda($slaalom); 
-            $asendatud_ringtee = asenda($ringtee); 
-            $asendatud_t2nav = asenda($t2nav); 
-
-            $loalahter = ".";
-            $link = $_REQUEST["link"];
-
-            if($luba == 1)
-                $loalahter = "Väljastatud";
-
-            if($luba == -1 && $t2nav == 1) 
-                $loalahter = "<a href='?link=$link&vormistamine_id=$id'>Vormista load</a>";
-
-            echo " 
-            <tr> 
-                <td>$eesnimi</td> 
-                <td>$perekonnanimi</td> 
-                <td>$teooriatulemus</td> 
-                <td>$asendatud_slaalom</td> 
-                <td>$asendatud_ringtee</td> 
-                <td>$asendatud_t2nav</td> 
-                <td>$loalahter</td> 
-            </tr> 
-            "; 
-        } 
-        ?> 
-    </table> 
-</div> 
+        <?php
+            KuvaLopetamiseTabel();
+        ?>
+    </table>
+</div>

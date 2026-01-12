@@ -29,7 +29,7 @@
         ?>
     </div> 
 
-    <table> 
+    <table class="exam-table"> 
         <?php 
             KuvaTulemusTabel();
         ?> 

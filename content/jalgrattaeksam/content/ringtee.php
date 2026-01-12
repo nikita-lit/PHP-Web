@@ -6,7 +6,7 @@
 ?>
 <div>
     <h1>Ringtee</h1>
-    <table>
+    <table class="exam-table">
         <?php
             KuvaRingteeTabel();
         ?>

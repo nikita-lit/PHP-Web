@@ -147,3 +147,43 @@ footer {
     border: black solid 2px;
     padding: 10px;
 }
+
+/* Exam pages tables and action links */
+.exam-table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.exam-table th {
+    background: linear-gradient(0deg, #1b8f3c, #2fbf71);
+    color: #ffffff;
+    padding: 10px 12px;
+}
+
+.exam-table td, .exam-table th {
+    border: 1px solid rgba(46,46,46,0.12);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.exam-table a {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 6px 10px;
+    background: #2fbf71;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.exam-table a:hover {
+    background: #1b8f3c;
+}
+
+.exam-table td .muted {
+    color: #777;
+    font-style: italic;
+}
