@@ -218,7 +218,7 @@ div.flex-container > div {
     justify-content: flex-start;
     gap: 10px;
     height: 100%;
-    width: 350px;
+    width: 500px;
     padding: 10px 20px 0 20px;
     font-size: 20px;
     background-color: #fdfcf8;
@@ -257,7 +257,7 @@ div.flex-container > div {
 }
 
 #product_table td, th {
-    border: rgba(0,0,0,0.3) solid 2px;
+    border: 1px solid rgba(46, 46, 46, 0.2);
     padding: 5px;
 }
 
@@ -301,4 +301,39 @@ div.flex-container > div {
 
 .login-form input[type="submit"]:hover {
     background-color: #ffc60b;
+}
+
+/* Users */
+#user_table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#user_table th {
+    background-color: #333;
+    color: #ffc60b;
+    padding: 10px 12px;
+}
+
+#user_table td, #user_table th {
+    border: 1px solid rgba(46, 46, 46, 0.2);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+#user_table a {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 6px 10px;
+    background: #2fbf71;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+#user_table a:hover {
+    background: #1b8f3c;
 }

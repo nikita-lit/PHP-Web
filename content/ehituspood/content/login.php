@@ -6,7 +6,7 @@
 
         if (!$auth->SetUser($username, $password))
         {
-            
+            echo "<script>alert('Vale kasutajanimi või parool!');</script>";
         }
         else
         {

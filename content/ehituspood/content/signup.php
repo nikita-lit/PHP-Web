@@ -8,13 +8,16 @@
 
         if ($password != $password_confirm)
         {
-            
+            echo "<script>alert('Paroolid ei kattu!');</script>";
         }
         else
         {
-            $auth->RegisterUser($username, $email, $password);
-            echo "<script>window.location.href = 'index.php';</script>";
-            exit();
+            if ($auth->RegisterUser($username, $email, $password))
+            {
+                //header("Location: index.php");
+                echo "<script>window.location.href = 'index.php';</script>";
+                exit();
+            }
         }
     }
 ?>
@@ -25,7 +28,7 @@
     <form method="post" class="login-form">
         <label>
             Kasutajanimi:
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" minlength="5" required>
         </label>
 
         <label>

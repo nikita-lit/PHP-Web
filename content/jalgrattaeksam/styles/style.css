@@ -190,8 +190,3 @@ footer {
 .exam-table a:hover {
     background: #1b8f3c;
 }
-
-.exam-table td .muted {
-    color: #777;
-    font-style: italic;
-}

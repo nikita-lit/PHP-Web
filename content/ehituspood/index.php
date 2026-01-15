@@ -1,9 +1,8 @@
 <?php
-    include_once "classes/authorization.php";
+    include_once ("classes/authorization.php");
 
     session_start();
     $auth = new Authorization();
-    //$auth->SetUser("lnikita", "1234");
 ?>
 
 <!DOCTYPE html>

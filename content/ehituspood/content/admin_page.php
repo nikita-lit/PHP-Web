@@ -1,4 +1,10 @@
 <?php
+    if (!$auth->IsUserAdmin())
+    {
+        echo "<script>window.location.href = 'index.php?link=login.php';</script>";
+        exit();
+    }
+
     require('config.php');
     global $connect;
 
@@ -158,7 +164,7 @@
             <?php';
         }
         else
-            echo "<h1>Admin haldusleht</h1>"
+            echo "<h1>Tooted haldus</h1>"
         ?>
     </div>
 </div>

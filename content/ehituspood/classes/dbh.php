@@ -2,10 +2,11 @@
     /*
     CREATE TABLE users (
         id int PRIMARY KEY AUTO_INCREMENT,
-        username varchar(30) NOT NULL,
-        email varchar(50),
+        username varchar(30) UNIQUE NOT NULL,
+        email varchar(50) UNIQUE,
         password varchar(255) NOT NULL,
-        reg_date date
+        reg_date datetime,
+        role varchar(100) DEFAULT 'client'
     );
     
     */
