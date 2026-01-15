@@ -19,7 +19,8 @@
 
             $connect = $this->GetConnection();
             $query = $connect->prepare("INSERT INTO users (username, email, password, reg_date) VALUES (?, ?, ?, NOW())");
-            $query->bind_param("sss", $username, $email, $password);
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $query->bind_param("sss", $username, $email, $hashedPassword);
             $query->execute();
 
             $this->SetUser($username, $password);
@@ -46,19 +47,22 @@
         public function SetUser($username, $password)
         {
             $connect = $this->GetConnection();
-            $query = $connect->prepare("SELECT id, role FROM users WHERE username = ? AND password = ? LIMIT 1");
-            $query->bind_param("ss", $username, $password);
-            $query->bind_result($id, $role);
+            $query = $connect->prepare("SELECT id, role, password FROM users WHERE username = ? LIMIT 1");
+            $query->bind_param("s", $username);
             $query->execute();
+            $query->bind_result($id, $role, $hashedPassword);
 
             $found = false;
 
             if ($query->fetch())
             {
-                $_SESSION["userid"] = $id;
-                $_SESSION["username"] = $username;
-                $_SESSION["userrole"] = $role;
-                $found = true;
+                if (password_verify($password, $hashedPassword))
+                {
+                    $_SESSION["userid"] = $id;
+                    $_SESSION["username"] = $username;
+                    $_SESSION["userrole"] = $role;
+                    $found = true;
+                }
             }
 
             $query->close();
