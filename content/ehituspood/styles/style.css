@@ -38,8 +38,13 @@ h1, h2 {
 
 /* Nav */
 nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 0;
     box-shadow: rgba(0,0,0,0.1) 0 5px 10px;
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
 }
 
 nav ul {
@@ -50,16 +55,13 @@ nav ul {
     align-items: center;
     background-color: #ffffff;
     gap: 20px;
-    border-bottom: 1px solid #d8d8d8;
-    border-top: 1px solid #d8d8d8;
     margin: 0;
-    padding: 10px 0 10px 20px;
+    padding: 10px;
 }
 
 nav ul a {
     text-decoration: none;
     color: #333333;
-    font-weight: bold;
     padding: 10px;
 }
 
@@ -255,6 +257,48 @@ div.flex-container > div {
 }
 
 #product_table td, th {
-    border: black solid 2px;
+    border: rgba(0,0,0,0.3) solid 2px;
     padding: 5px;
+}
+
+/* Login */
+.login-container {
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    height: 250px;
+}
+
+.login-form label {
+    font-weight: bold;
+}
+
+.login-form input {
+    padding: 5px;
+}
+
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login-form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #ffc60b;
 }
