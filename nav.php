@@ -16,5 +16,6 @@
         <li><a target="_blank" href="content/valimised/valimised.php">Valimised</a></li>
         <li><a target="_blank" href="content/valimised/valimisedFunktsioonidega.php">Valimised Funktsioonidega</a></li>
         <li><a target="_blank" href="content/jalgrattaeksam/index.php">Jalgrattaeksam</a></li>
+        <li><a target="_blank" href="content/xml/auto_lugemine.php">RSS - XML</a></li>
     </ul>
 </nav>
